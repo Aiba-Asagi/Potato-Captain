@@ -1,0 +1,35 @@
+name: Fetch
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '10 18 * * *'
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone "Asia/Shanghai"
+
+      - uses: actions/checkout@v3
+
+      - name: Fetch
+        id: fetch
+        uses: yjl9903/fetch-captain@v0
+        with:
+          roomid: '4884461'
+          ruid: '103921186'
+          outDir: './data/'
+          # sender: ${{ secrets.SENDER }}
+          # sender_pass: ${{ secrets.SENDER_PASS }}
+          # sender_host: ${{ secrets.SENDER_HOST }}
+          # receiver: ${{ secrets.RECEIVER }}
+
+      - name: Push
+        run: |
+          git add *.csv
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -m "update: add ${{ steps.fetch.outputs.csv }}"
+          git push

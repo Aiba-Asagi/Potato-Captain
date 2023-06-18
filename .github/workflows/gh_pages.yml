@@ -1,0 +1,34 @@
+name: Github Pages
+
+on:
+  push:
+  workflow_run:
+    workflows: ["Fetch"]
+    types:
+      - completed
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Timezone
+        run: sudo timedatectl set-timezone "Asia/Shanghai"
+      - uses: actions/checkout@v3
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2.2.2
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.x
+          cache: pnpm
+      - name: Install
+        run: pnpm install
+      - name: Build
+        run: pnpm build
+      - name: Github Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
