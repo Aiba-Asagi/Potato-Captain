@@ -1,14 +1,8 @@
-<!--
- * @Author: cube-yj
- * @Date: 2023-06-18 19:05:05
- * @LastEditTime: 2023-06-18 19:12:14
- * @LastEditors: cube-yj
- * @Description: 
- * @FilePath: \Potato-Captain-main\README.md
--->
 # 舰长日报
 
-[![Fetch](https://github.com/yjl9903/Miki-Captain/actions/workflows/fetch.yml/badge.svg)](https://github.com/yjl9903/Miki-Captain/actions/workflows/fetch.yml) [![miki](https://img.shields.io/endpoint?url=https://pages.onekuma.cn/project/miki&label=Miki)](https://miki.xlor.cn)
+[![Fetch](https://github.com/Aiba-Asagi/Potato-Captain/actions/workflows/fetch.yml/badge.svg)](https://github.com/Aiba-Asagi/Potato-Captain/actions/workflows/fetch.yml)
+## 注
+已暂停workflow(不播)
 
 ## 项目所属
 [Miki-Captain](https://github.com/yjl9903/Miki-Captain)
